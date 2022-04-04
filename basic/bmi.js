@@ -28,7 +28,7 @@ export default function Bmi (){
         .catch(err => alert(err))
     }
     return (<div>
-        <form action="" onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit} >
             <h1>BMI</h1>
             <div>
                 <label htmlFor="">이름</label>

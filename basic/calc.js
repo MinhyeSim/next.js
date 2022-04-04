@@ -1,31 +1,55 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 export default function Calc(){
-    const [num1, setNum1] = useState(0);
-    const [num2, setNum2] = useState(0);
-    
-    return <><h1>Calc폼</h1>
+    const [inputs, setInputs] = useState({})
+    const {num1, opcode, num2} = inputs;
 
-    <div>
-    <label><b>num1</b></label>
-    <input id = "num1" type=""/><br/>
+    const handleChange = e => {
+        e.preventDefault()
+        const {name, value} = e.target;
+        setInputs({...inputs, [name] : value})
+    }
 
-    <label htmlFor=""><b>opcode</b></label>
-    <select name="" id="">
-        <option value="">+</option>
-        <option value="">-</option>
-        <option value="">*</option>
-        <option value="">/</option>
-        <option value="">%</option>
-    </select><br/>
+    const handleSubmit = e => {
+        e.preventDefault()
+        axios.post('http://localhost:5000/api/basic/calc', inputs)
+        .then(res => {
+            const calc = res.data
+            document.getElementById('result').innerHTML= `
+            <h3> 숫자1 : ${calc.num1}</h3>
+            <h3> 연산자 : ${calc.opcode}</h3>
+            <h3> 숫자2 : ${calc.num2}</h3>
+            <h3> 결과 : ${calc.calc}</h3>
+            `
+        })
+        .catch(err => alert(err))
 
-    <label><b>num2</b></label>
-    <input id = "num2" type=""/><br/>
+    }
+    return (<div>   
+        <form onSubmit={handleSubmit}>
+            <h1>Calc폼</h1>
+            <div>
+                <label><b>num1</b></label>
+                <input type = "num1" name="num1" onChange={handleChange}/><br/>
 
-    <button onClick={()=>{setNum1(document.getElementById('num1').value)}}>숫자1 결정</button>
-    <button onClick={()=>{setNum2(document.getElementById('num2').value)}}>숫자2 결정</button>
+                <label htmlFor=""><b>opcode</b></label>
+                <select name="opcode" onChange={handleChange}>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select><br/>
 
+                <label><b>num2</b></label>
+                <input type = "num2" name="num2" onChange={handleChange}/><br/> 
 
-    </div>
-    </>
+                <input type="submit" value="계산 결과" /><br />
+
+            </div>               
+        </form>    
+        <div> 결과 : <span id ="result"></span></div>
+        </div>
+    )
 }
