@@ -4,7 +4,12 @@ import { useState } from "react"
 
 export default function TeamForm(){
     const [inputs, setInputs] = useState({})
+    const {teamId,region,teamName,orgYyyy,stadiumName,tel, adress} =inputs;
+    
+    const handleChange = e => {
+    const {name , value} = e.target;
     setInputs({...inputs,[name] : value})
+    }
 
 
     const handleSubmit = e => {
@@ -20,31 +25,23 @@ export default function TeamForm(){
                     <label className={style.label} htmlFor="teamId">팀 ID</label>
                 </div>
                 <div className={style.col75}>
-                    <input type="text" className={style.inputText} id="TeamId" name="TeamId"/>
+                    <input type="text" className={style.inputText} id="teamId" name="teamId"/>
+                </div>
+            </div>            
+            <div className={style.row}>
+                <div className={style.col25}>
+                    <label className={style.label} htmlFor="region">연고지</label>
+                </div>
+                <div className={style.col75}>
+                    <input type="text" className={style.inputText} id="region" name="region"/>
                 </div>
             </div>
             <div className={style.row}>
                 <div className={style.col25}>
-                    <label className={style.label} htmlFor="teamId">팀 ID</label>
+                    <label className={style.label} htmlFor="teamName">팀명</label>
                 </div>
                 <div className={style.col75}>
-                    <input type="text" className={style.inputText} id="TeamId" name="TeamId"/>
-                </div>
-            </div>
-            <div className={style.row}>
-                <div className={style.col25}>
-                    <label className={style.label} htmlFor="teamId">연고지</label>
-                </div>
-                <div className={style.col75}>
-                    <input type="text" className={style.inputText} id="TeamId" name="TeamId"/>
-                </div>
-            </div>
-            <div className={style.row}>
-                <div className={style.col25}>
-                    <label className={style.label} htmlFor="teamId">팀명</label>
-                </div>
-                <div className={style.col75}>
-                    <input type="text" className={style.inputText} id="TeamId" name="TeamId"/>
+                    <input type="text" className={style.inputText} id="teamName" name="teamName"/>
                 </div>
             </div>
             <div className={style.row}>
