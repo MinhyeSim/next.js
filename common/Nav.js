@@ -15,6 +15,7 @@ export default function Nav(){
         <li className={style.li}> <Link href='/game/team-list'>TeamList</Link> </li>
         <li className={style.li}> <Link href='/user/sign-in'>SingIn</Link> </li>
         <li className={style.li}> <Link href='/user/sign-up'>SingUp</Link> </li>
+        <li className={style.li}> <Link href='/user/user-list'>UserList</Link> </li>
         
         
       </ul>
