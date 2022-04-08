@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Table = ({columns, colspan, data}) => {
     return(
-        <table className={style.inputText}>
+        <table className={style.table}>
         <thead>
             <tr className={style.tr}>
             {columns.map((column) => (
@@ -12,7 +12,7 @@ const Table = ({columns, colspan, data}) => {
             ))}
             </tr>
             </thead>
-            <tobody>
+            <tbody>
                 {data.length == 0 ? <tr className={style.tr}>
                                     <td colSpan={colspan} className={style.td}>데이터가 없습니다.</td>
                                     </tr>
@@ -20,18 +20,18 @@ const Table = ({columns, colspan, data}) => {
                                     <tr className={style.tr} key={board.passengerId}>
                                         <td className={style.td}>{board.passengerId}</td>
                                         <td className={style.td}>{board.name}</td>
-                                        <td className={style.td}>{board.team}</td>
+                                        <td className={style.td}>{board.teamId}</td>
                                         <td className={style.td}>{board.subject}</td>
                                         </tr>
                 ))}
 
-            </tobody>
+            </tbody>
         </table>
     );
 }
 
 export default function BoardList() {
-    const columns = ["PassengerId", "Name", "Team", "Subject"];
+    const columns = ["PassengerId", "Name", "TeamId", "Subject"];
     const [data, setData] = useState([]);
     useEffect(()=>{
         axios.get('http://localhost:5000/api/board/boardlist')

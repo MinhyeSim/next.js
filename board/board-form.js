@@ -15,11 +15,11 @@ export default function BoardhtmlForm(){
 
     const handleSubmit = e => {
         e.preventDefault()
-        const boardForm = {passengerId,name,teamId, subject}
+        const boardForm = {passengerId, name, teamId, subject}
         alert(`데이터셋 출력 : ${JSON.stringify(boardForm)}`)
         axios.post('http://localhost:5000/api/board/boardform', inputs)
         .then(res => {
-            alert(res.data)
+            alert(JSON.stringify(res.data))
         })
         .catch(err => alert(err))
     }
