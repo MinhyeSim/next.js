@@ -17,7 +17,7 @@ export default function BoardhtmlForm(){
         e.preventDefault()
         const boardForm = {passengerId,name,teamId, subject}
         alert(`데이터셋 출력 : ${JSON.stringify(boardForm)}`)
-        axios.post('http://localhost:5000/api/board/write', inputs)
+        axios.post('http://localhost:5000/api/board/boardform', inputs)
         .then(res => {
             alert(res.data)
         })

@@ -18,15 +18,15 @@ const Table = ({columns, colspan, data}) => {
                                 <td colSpan={colspan} className={style.td}>데이터가 없습니다.</td>
                                 </tr>              
                                 :data.map((user) => (
-                        <tr className={style.tr} key={user.username}>
-                            <td className={style.td}>{user.username}</td>
-                            <td className={style.td}>{user.password}</td>
-                            <td className={style.td}>{user.name}</td>
-                            <td className={style.td}>{user.telephone}</td>
-                        </tr>                
+                                <tr className={style.tr} key={user.username}>
+                                    <td className={style.td}>{user.username}</td>
+                                    <td className={style.td}>{user.password}</td>
+                                    <td className={style.td}>{user.name}</td>
+                                    <td className={style.td}>{user.telephone}</td>
+                                </tr>                
                     ))}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     );
 }
 

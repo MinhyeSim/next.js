@@ -1,5 +1,48 @@
-export default function BoardList(){
-    return (<><h1>BoardList</h1></>
+import { useEffect, useState } from "react";
+import style from 'board/style/board-form.module.css'
+import axios from "axios";
 
-    )
+const Table = ({columns, colspan, data}) => {
+    return(
+        <table className={style.inputText}>
+        <thead>
+            <tr className={style.tr}>
+            {columns.map((column) => (
+                <th key={column.passengerId} className={style.td}>{column}</th>
+            ))}
+            </tr>
+            </thead>
+            <tobody>
+                {data.length == 0 ? <tr className={style.tr}>
+                                    <td colSpan={colspan} className={style.td}>데이터가 없습니다.</td>
+                                    </tr>
+                                    :data.map((board) => (
+                                    <tr className={style.tr} key={board.passengerId}>
+                                        <td className={style.td}>{board.passengerId}</td>
+                                        <td className={style.td}>{board.name}</td>
+                                        <td className={style.td}>{board.team}</td>
+                                        <td className={style.td}>{board.subject}</td>
+                                        </tr>
+                ))}
+
+            </tobody>
+        </table>
+    );
+}
+
+export default function BoardList() {
+    const columns = ["PassengerId", "Name", "Team", "Subject"];
+    const [data, setData] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:5000/api/board/boardlist')
+        .then(res=>{setData(res.data.boards)}).catch(err=>{})
+    },[])
+
+
+    return (<>
+        <h1>Board List</h1>
+        <div className={style.td}>
+        <Table columns={columns} colspan={4} data={data}/>
+        </div>
+        </>)
 }

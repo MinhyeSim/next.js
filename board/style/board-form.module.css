@@ -50,6 +50,22 @@
     display: table;
     clear: both;
     }
+    
+    .table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    .td {
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    .tr {
+      border: 1px solid black;
+    }
 
 /* Clear floats after the columns */
 .row:after {
