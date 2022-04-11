@@ -1,3 +1,6 @@
-import { createStore, applyMiddleware } from 'redux'
-import { createWrapper } from 'next-redux-wrapper'
-import createSagaMiddleware from 'redux-saga'
+import { takeLatest, all, put }from 'redux-saga/effects'
+import {} from './user.saga'
+
+export default function* rootSaga(){
+    yield all([fork(watchSignup)])
+}

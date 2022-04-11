@@ -13,12 +13,11 @@ export default function SignUp(){
 
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post(proxy+'/api/user/sign-up',inputs)
-        .then(res => {
-            alert(JSON.stringify(res.data))            
-            
-        })
-        .catch(err => alert(err))
+       alert(`등록할 회원정보 : ${JSON.stringify(inputs)}`)
+       axios.post('http://localhost:5000/api/user/signup,inputs').then(res => {
+           alert(`결과:${res.data.result}`)
+       }).catch(err=>{alert(err)})
+
     }
 
     return (<><h1>회원가입폼</h1>

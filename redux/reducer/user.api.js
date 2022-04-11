@@ -5,8 +5,8 @@ const headers = {
     Authorization: "JWT fefege...",
 }
 
-const signupAPI = (data) => axios.post(`${SERVER}/api/user/signup`,inputs,{headers})
+const joinAPI = (data) => axios.post(`${SERVER}/api/user/signup`,inputs,{headers})
 
 export default{
-    signupAPI
+    joinAPI
 }
