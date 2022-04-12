@@ -1,5 +1,5 @@
 import {Layout} from "./common"
-import {wrapper} from '../redux/store'
+import wrapper from '../redux/store'
 import Head from "next/head"
 
 const App = ({ Component, pageProps }) => {
@@ -16,9 +16,9 @@ const App = ({ Component, pageProps }) => {
     </Layout>
     </>
   )
-  App.propTypyes= {
-    Component: PropTypyes.elementType.isReqyired,
-    pageProps: propTypyes.any.isReqyired
+  App.propTypes= {
+    Component: PropTypes.elementType.isRequired,
+    pageProps: propTypes.any.isRequired
   }
 }
 

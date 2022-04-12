@@ -15,7 +15,7 @@ export const createStore = () =>{
         devTools: isDev,
         middleware: [sagaMiddleware],
     })
-    sagaMiddleware.run(rootSaga)
+    //sagaMiddleware.run(rootSaga)
     return store
 }
 

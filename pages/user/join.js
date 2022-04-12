@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { styled, darken } from '@mui/material/styles';
+//import { styled, darken } from '@mui/material/styles';
 import { useDispatch } from 'react-redux'
 import { motion } from 'framer-motion';
 import { Controller, useForm } from 'react-hook-form';
@@ -8,21 +8,22 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import * as yup from 'yup';
 import _ from '@lodash';
-import 'features/user/style/UserLayout.scss'
-import "features/user/style/UserRegister.scss"
-import { CheckList } from '..';
-import { joinRequest } from '../reducer/userSlice';
+import Image from 'next/image';
+//import './user/style/UserLayout.scss'
+//import "./user/style/UserRegister.scss"
+//import { CheckList } from '..';
+import { joinRequest } from '../../redux/reducers/user.reducer';
 
 /**
  * 생년월일/나이/핸드폰번호 추가하기. 
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  username: yup.string().required('You must enter your name'),
-  email: yup.string().email('You must enter a valid email').required('You must enter a email'),
+  username: yup.string().required('You must enter your username'),
+  name: yup.string().required('You must enter a name'),
   password: yup
     .string()
     .required('Please enter your password.')
@@ -33,11 +34,9 @@ const schema = yup.object().shape({
 
 const defaultValues = {
   username: '',
-  email: '',
-  phone: '',
-  birth: '',
-  password: '',
-  address: '',
+  password:'',
+  name: '',
+  telephone: '',
 };
 
 export default function Register3Page() {
@@ -55,7 +54,7 @@ export default function Register3Page() {
   }
 
   return (
-    <LayOut>
+    <>
       <div className="User-container">
           <motion.div
             initial={{ opacity: 0, scale: 0.6 }}
@@ -70,7 +69,7 @@ export default function Register3Page() {
                   animate={{ opacity: 1, transition: { delay: 0.2 } }}
                 >
                   <div className="flex items-center mb-48">
-                    <img className='login-img' src={require("features/user/images/paper-pencil.png").default} />
+                    <Image src='/user/paper-pencil.png' alt="me" width="64" height="64"/>
                     <div className="border-l-1 mr-4 w-1 h-40" />
                     <div>
                       <Typography className="text-24 font-semibold logo-text" color="inherit">
@@ -223,7 +222,6 @@ export default function Register3Page() {
                     )}
                   />
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <CheckList/>
                     <Button style={{'margin-top' : '60px'}}
                     variant="contained"
                     color="primary"
@@ -241,7 +239,7 @@ export default function Register3Page() {
 
               <div className="flex flex-col items-center justify-center pb-32">
                 <span className="font-normal">이미 회원이신가요?</span>
-                <Link className="font-normal" to="/users/Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link className="font-normal" href="/users/Login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   로그인하기
                 </Link>
               
@@ -268,8 +266,7 @@ export default function Register3Page() {
           </motion.div>
         </div>
         {/* <div style={{marginTop: "-442px"}}>
-        <CheckList/>
         </div> */}
-    </LayOut>
+    </>
   );
 }
