@@ -1,7 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import {call, deplay, put, takeLatest} from 'redux-saga/effects'
 import {
-    JoinPayload, joinRequest, joinSuccess, joinFailure
+    joinPayload, joinRequest, joinSuccess, joinFailure
 } from '../reducers/user.reducer'
 
 function* join(action){

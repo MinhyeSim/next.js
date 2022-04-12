@@ -13,8 +13,8 @@ export default function Nav(){
         <li className={style.li}> <Link href='/board/board-form'>BoardForm</Link> </li>
         <li className={style.li}> <Link href='/game/game-list'>GameList</Link> </li>
         <li className={style.li}> <Link href='/game/team-list'>TeamList</Link> </li>
-        <li className={style.li}> <Link href='/user/sign-in'>SingIn</Link> </li>
-        <li className={style.li}> <Link href='/user/sign-up'>SingUp</Link> </li>
+        <li className={style.li}> <Link href='/user/login-In'>LoginIn</Link> </li>
+        <li className={style.li}> <Link href='/user/join'>Join</Link> </li>
         <li className={style.li}> <Link href='/user/user-list'>UserList</Link> </li>
         
         
