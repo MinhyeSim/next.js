@@ -29,13 +29,14 @@ export default function BoardhtmlForm(){
             <htmlForm action="">
             <div className={style.row}>
                 <div className={style.col25}>
-                <label className={style.label} htmlFor="passengerId">PassengerId</label>
+                <label className={style.label} htmlFor="passengerId">글 제목</label>
                 </div>
                 <div className={style.col75}>
                 <input type="text" className={style.inputText}
-                id="passengerId" name="passengerId" onChange={handleChange} />
+                id="title" name="title" placeholder="글 제목 입력" onChange={handleChange} />
                 </div>
             </div>
+            {/**
             <div className={style.row}>
                 <div className={style.col25}>
                 <label htmlFor="name">Name</label>
@@ -66,6 +67,7 @@ export default function BoardhtmlForm(){
                 </div>
             </div>
             <br/>
+            */}
             <div className={style.row}>
                 <input type="submit" className={style.inputSubmit} value="Submit" onClick={handleSubmit}/>
             </div>

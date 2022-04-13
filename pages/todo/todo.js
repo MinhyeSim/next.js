@@ -1,30 +1,30 @@
-import React,{useEffect, useState} from "react";
-import { getBindingIdentifiers } from "@babel/types";
-import Image from "next/image";
-export default function AppTasks() {
- const [task,setTask] = useState();
-const [check, setCheck] = useState(false)
+import React,{useState} from "react";
+import { useDispatch } from "react-redux";
+
+export default function AppTodo() {
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch()
   return (
      <div className="todoapp stack-large">
-      <h1>오늘 할일</h1>
-      <form>
-        <h2 className="label-wrapper">
-          <label htmlFor="new-todo-input" className="label__lg">
-            What needs to be done?
-          </label>
-        </h2>
+      <h1>일정등록</h1>
+      <form onSubmit={e => {
+          e.preventDefault()
+          if(value) dispatch(addTask({task: value}))
+      }}>
+       
         <input
           type="text"
           id="new-todo-input"
           className="input input__lg"
           name="text"
           autoComplete="off"
+          onChange={e=>{}}
         />
         <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
           Add
         </button>
       </form>
-      <div className="filters btn-group stack-exception">
+      {/*<div className="filters btn-group stack-exception">
         <button type="button" className="btn toggle-btn" aria-pressed="true">
           <span className="visually-hidden">Show </span>
           <span>all</span>
@@ -73,7 +73,7 @@ const [check, setCheck] = useState(false)
             </button>
           </div>
         </li>
-      </ul>
+        </ul>*/}
     </div>
   );
 }
