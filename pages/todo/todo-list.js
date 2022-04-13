@@ -1,24 +1,10 @@
-import axios from "axios";
+import react from 'react';
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
-const Table = ({data}) => (<>
-    <table>
-        <thead>
-            <tr>
-                <th>일정</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>일정이 없습니다</td>
-            </tr>
-            <tr>
-                <td>일정이 있습니다</td>
-            </tr>
-        </tbody>
-    </table>
-    </>
-)
+const Table = ({colspan, data}) => {
+    
+}
 
 export default function TodoList(){
     const column=["Todo"];

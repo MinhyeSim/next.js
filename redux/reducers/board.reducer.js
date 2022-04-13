@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {}
+const initialState = []
 
 export const boardSlice = createSlice({
     name:'boards',
     initialState,    
-    reducers:{}
+    reducers:{
+        
+    }
 })
 
 export default boardSlice.reducer

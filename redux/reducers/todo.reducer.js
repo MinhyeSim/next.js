@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
-    task: ''
-}
+const initialState = []
 
 export const todoSlice = createSlice({
     name: 'todos',

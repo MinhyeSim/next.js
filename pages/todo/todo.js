@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { useDispatch } from "react-redux";
+import {addTask} from '../../redux/reducers/todo.reducer'
 
 export default function AppTodo() {
     const [value, setValue] = useState('')
@@ -9,6 +10,7 @@ export default function AppTodo() {
       <h1>일정등록</h1>
       <form onSubmit={e => {
           e.preventDefault()
+          alert('value?'+value)
           if(value) dispatch(addTask({task: value}))
       }}>
        
@@ -18,7 +20,10 @@ export default function AppTodo() {
           className="input input__lg"
           name="text"
           autoComplete="off"
-          onChange={e=>{}}
+          onChange={e=>{
+              e.preventDefault()
+              setValue(e.target.value)
+          }}
         />
         <button style={{marginLeft:"20px"}} type="submit" className="btn btn__primary btn__lg">
           Add
