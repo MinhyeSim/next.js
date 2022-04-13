@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 
 const Table = ({colspan, data}) => {
-    
+
 }
 
 export default function TodoList(){
