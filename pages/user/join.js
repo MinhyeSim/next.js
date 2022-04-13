@@ -15,8 +15,7 @@ import Image from 'next/image';
 //import './user/style/UserLayout.scss'
 //import "./user/style/UserRegister.scss"
 //import { CheckList } from '..';
-import { joinRequest } from '../../redux/reducers/user.reducer';
-
+import { joinRequest } from '../../redux/reducers/user.reducer'
 /**
  * 생년월일/나이/핸드폰번호 추가하기. 
  * Form Validation Schema
