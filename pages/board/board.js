@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 import { useDispatch } from "react-redux"
-import { addTask } from "../../redux/reducers/board.reducer"
+import { addTask } from "../../redux/reducers/boardReducer"
 
 export default function Board(){
     const [value,setValue] = useState({})

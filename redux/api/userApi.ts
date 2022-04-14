@@ -1,12 +1,10 @@
 import axios from 'axios'
+import { JoinPayload } from './todoApi'
 const SERVER = 'http://127.0.0.1:5000'
 const headers = {
     "Content-Type": "application/json",
     Authorization: "JWT fefege...",
 }
 
-const addTask = (data) => axios.post(`${SERVER}/api/user/signup`,inputs,{headers})
+export const joinApi = (data: JoinPayload) => axios.post(`${SERVER}/api/user/signup`, data,{headers})
 
-export default{
-    addTask
-}
