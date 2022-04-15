@@ -9,7 +9,7 @@ const headers = {
 
 export interface UserType{
     userid : string;
-    paswword: string;
+    password: string;
     email: string;
     name: string;
     phone: string;
@@ -19,10 +19,10 @@ export interface UserType{
 
 
 export const postUser = async (payload: 
-    {userid : string,paswword: string, email: string,
+    {userid : string,password: string, email: string,
      name: string, phone: string, birth: string, adress: string}) => {
      try{
-        const response : AxiosResponse(unknown, UserType[]>= await axios.post(`${SERVER}/api/user/signup`, payload,{headers})
+        const response : AxiosResponse<unknown, UserType[]>= await axios.post(`${SERVER}/api/user/signup`, payload,{headers})
         alert('진행4 : 응답성공' +JSON.stringify(response.data))
         return response.data
     }catch(err){
