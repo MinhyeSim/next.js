@@ -15,7 +15,7 @@ import Image from 'next/image';
 //import './user/style/UserLayout.scss'
 //import "./user/style/UserRegister.scss"
 //import { CheckList } from '..';
-import { joinRequest } from '../../redux/api/todoApi'
+import { joinRequest } from '../../redux/reducers/userReducer.ts'
 /**
  * 생년월일/나이/핸드폰번호 추가하기. 
  * Form Validation Schema
@@ -28,7 +28,7 @@ const schema = yup.object().shape({
   password: yup
     .string()
     .required('비밀번호를 입력하시오')
-    .min(8, '비밀번호가 너무 짧습니다. 최소 8자 이상 되어야 합니다. '),
+    .min(1, '비밀번호가 너무 짧습니다. 최소 1자 이상 되어야 합니다. '),
   passwordConfirm: yup.string().oneOf([yup.ref('password'), null], '비밀번호가 일치해야 합니다'),
 
 });
@@ -73,7 +73,7 @@ export default function Join() {
                   animate={{ opacity: 1, transition: { delay: 0.2 } }}
                 >
                   <div className="flex items-center mb-48">
-                    <Image src={"/user/paper-pencil.jpg"}  alt="me" width="64" height="64" />
+                    <Image src={"/user/paper-pencil.png"}  alt="me" width="64" height="64" />
                     <div className="border-l-1 mr-4 w-1 h-40" />
                     <div>
                       <Typography className="text-24 font-semibold logo-text" color="inherit">
@@ -90,7 +90,8 @@ export default function Join() {
                 <form
                   name="registerForm"
                   noValidate
-                  className="flex flex-col justify-center w-full"                  
+                  className="flex flex-col justify-center w-full" 
+                  onSubmit={handleSubmit(async (data) => {await dispatch(joinRequest({...data,}))})}                 
                 >
                   <Controller
                     name="userid"
@@ -129,25 +130,6 @@ export default function Join() {
                         type="name"
                         error={!!errors.name}
                         helperText={errors?.name?.message}
-                        variant="outlined"
-                        required
-                        fullWidth
-                      />
-                    )}
-                  />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <Controller
-                    name="phone"
-                    control={control}
-                    render={({ field }) => (
-                      <TextField
-                        {...field}
-                        className="mb-16"
-                        label="Phone"
-                        type="text"
-                        error={!!errors.phone}
-                        helperText={errors?.phone?.message}
                         variant="outlined"
                         required
                         fullWidth

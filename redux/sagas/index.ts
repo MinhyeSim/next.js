@@ -4,3 +4,4 @@ import { watchJoin } from './userSaga.ts';
 export default function* rootSaga() {
     yield all([watchJoin()]);
   }
+  
