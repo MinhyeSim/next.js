@@ -12,7 +12,7 @@ export default function  Join(){
         const{name, value} = e.target;
         setUser({...user,[name]: value})
     }
-    return <><h1>회원가입폼</h1>
+    return <><h1>회원가입폼</h1>    
     <form onSubmit={
         e => {
             e.preventDefault()

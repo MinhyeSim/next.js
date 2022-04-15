@@ -11,6 +11,13 @@ interface UserJoinType{
     }
 }
 
+interface UserJoinSuccessType{
+    type: string;
+    payload: {
+        userid: string
+    }
+}
+
 function* join(user: UserJoinType){
     try{
         alert(' 진행 3: saga내부 join 성공  '+ JSON.stringify(user))

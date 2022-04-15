@@ -9,7 +9,7 @@ const Table = ({columns, colspan, data}) => {
             {/**<th key={column} className={tableStyles.td}><column}></th> */}
             <tr className={style.tr}>
             {columns.map((column) => (
-                    <th key={column.username} className={style.td}>{column}</th>
+                    <th key={column.userid} className={style.td}>{column}</th>
             ))}
             </tr>        
             </thead>
@@ -18,11 +18,13 @@ const Table = ({columns, colspan, data}) => {
                                 <td colSpan={colspan} className={style.td}>데이터가 없습니다.</td>
                                 </tr>              
                                 :data.map((user) => (
-                                <tr className={style.tr} key={user.username}>
-                                    <td className={style.td}>{user.username}</td>
-                                    <td className={style.td}>{user.password}</td>
+                                <tr className={style.tr} key={user.userid}>
+                                    <td className={style.td}>{user.userid}</td>
                                     <td className={style.td}>{user.name}</td>
-                                    <td className={style.td}>{user.telephone}</td>
+                                    <td className={style.td}>{user.email}</td>
+                                    <td className={style.td}>{user.phone}</td>
+                                    <td className={style.td}>{user.birth}</td>
+                                    <td className={style.td}>{user.address}</td>
                                 </tr>                
                     ))}
             </tbody>
@@ -31,7 +33,7 @@ const Table = ({columns, colspan, data}) => {
 }
 
 export default function UserList() {
-    const columns= ["Username", "Password", "Name", "Telephone"];   
+    const columns= ["사용자 ID",  "이메일","이름", "연락처", "생일", "주소"];   
     const [data, setData] = useState([]);
     useEffect(()=>{
         axios.get('http://localhost:5000/api/user/list')
@@ -39,10 +41,10 @@ export default function UserList() {
     },[])
     
     return ( <>
-        <h1>사용자목록</h1>
+        <h1>사용자 목록</h1>
         <div className={style.td}>
-        <Table columns={columns} colspan={4} data={data}/>
+        <Table columns={columns} colspan={6} data={data}/>
         </div>
-        </>)
+        </>)    
 
 }
