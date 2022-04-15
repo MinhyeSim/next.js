@@ -18,14 +18,15 @@ export interface UserType{
 }
 
 
-export const postUser = asyc (payload: 
+export const postUser = async (payload: 
     {userid : string,paswword: string, email: string,
      name: string, phone: string, birth: string, adress: string}) => {
      try{
-        const response : AxiosResponse(unknown, UserType[]>= await axios.post(`${SERVER}/api/user/signup`, data,{headers})
+        const response : AxiosResponse(unknown, UserType[]>= await axios.post(`${SERVER}/api/user/signup`, payload,{headers})
         alert('진행4 : 응답성공' +JSON.stringify(response.data))
         return response.data
     }catch(err){
         return err;
     }
+}
 
