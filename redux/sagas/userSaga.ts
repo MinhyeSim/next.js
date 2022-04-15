@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
 import { userActions } from '../../redux/reducers/userReducer.ts';
-import { joinApi } from '../api/userApi'
+import { postUser } from '../api/userApi.ts'
 
 interface UserJoinType{
     type: string;
