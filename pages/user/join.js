@@ -19,7 +19,7 @@ export default function  Join(){
             alert(' 진행 1: 회원가입 클릭 ');
             dispatch(userActions.joinRequest(user))
             setUser({
-                userid:'', password:'', email:'', name:'', phone:'', birth:'', address:''
+                userid:'', password:'', name:'', email:'', phone:'', birth:'', address:''
             })
         }
     }
@@ -31,16 +31,16 @@ export default function  Join(){
     <label htmlFor=""><b>비밀번호</b></label>
     <input type="text" name='password' onChange={handleChange}/><br />
 
-    <label htmlFor=""><b>이메일</b></label>
-    <input type="text" name='email' onChange={handleChange}/><br />
-
     <label htmlFor=""><b>이름</b></label>
     <input type="text" name='name' onChange={handleChange}/><br />
+
+    <label htmlFor=""><b>이메일</b></label>
+    <input type="text" name='email' onChange={handleChange}/><br />
 
     <label htmlFor=""><b>전화번호</b></label>
     <input type="text" name='phone' onChange={handleChange}/><br />
 
-    <label htmlFor=""><b>생년월일</b></label>
+    <label htmlFor=""><b>생일</b></label>
     <input type="text" name='birth' onChange={handleChange}/><br />
 
     <label htmlFor=""><b>주소</b></label>

@@ -33,7 +33,7 @@ const Table = ({columns, colspan, data}) => {
 }
 
 export default function UserList() {
-    const columns= ["사용자 ID",  "이메일","이름", "연락처", "생일", "주소"];   
+    const columns= ["사용자 ID",  "이름","이메일", "연락처", "생일", "주소"];   
     const [data, setData] = useState([]);
     useEffect(()=>{
         axios.get('http://localhost:5000/api/user/list')

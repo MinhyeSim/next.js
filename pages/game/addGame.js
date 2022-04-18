@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import style from "game/style/game-list.module.css"
 
-export default function Game() {
+export default function addGame() {
     const [inputs,setInputs] = useState({})
     const {team} = inputs;
 
