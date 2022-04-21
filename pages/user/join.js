@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { userActions } from '../../redux/reducers/userReducer.ts';
+//import tableStyles from '../common/styles/table.module.css'
 
 export default function  Join(){
     const [user, setUser] =useState({

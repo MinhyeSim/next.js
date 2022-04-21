@@ -21,8 +21,10 @@ export const postUser = async (payload:
     {userid : string,password: string, email: string,
      name: string, phone: string, birth: string, address: string}) => {
      try{
-        const response : AxiosResponse<unknown, UserType[]>= await axios.post(`${SERVER}/api/user/signup`, payload,{headers})
+        const response : AxiosResponse<unknown, UserType[]>= await axios.post(`${SERVER}/user/join`, payload,{headers})
         alert('진행 5 : 응답성공' +JSON.stringify(response.data))
+        //alert('진행 5 : 응답성공' +loginUser)
+        //localStoreage.setItem("loginUser",loginUser)
         return response.data
     }catch(err){
         return err;

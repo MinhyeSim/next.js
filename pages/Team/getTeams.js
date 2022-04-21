@@ -2,7 +2,7 @@ import axios from "axios"
 import style from "board/styles/board-form.module.css"
 import { useState } from "react"
 
-export default function TeamForm(){
+export default function getTeams(){
     const [inputs, setInputs] = useState({})
     const {teamId,region,teamName,orgYyyy,stadiumName,tel, adress} =inputs;
     

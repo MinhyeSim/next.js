@@ -23,11 +23,14 @@ function* join(user: UserJoinType){
         alert(' 진행 3: saga내부 join 성공  '+ JSON.stringify(user))
         const response : UserJoinSuccessType = yield postUser(user.payload)
         yield put(userActions.joinSuccess(response))
+        //window.location.href = '/'
     }catch(error){
          alert('진행 3: saga내부 join 실패  ') 
          yield put(userActions.joinRailure(error))
+         //window.location.href = '/user/login'
     }
 }
 export function* watchJoin(){
     yield takeLatest(userActions.joinRequest, join)
+    //payload 실패시 분해되면서 
 }

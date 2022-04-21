@@ -21,7 +21,7 @@ const Table = ({colspan, data}) => {
             </tbody>
         </table>
     )}
-export default function TodoList(){
+export default function getTodo(){
     const [data, setData] = useState([])
     const count = data.length
     return(<>
